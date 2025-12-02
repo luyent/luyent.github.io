@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Proxy Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-shield-alt"></i> Simple Proxy</h1>
+            <p class="subtitle">A lightweight web proxy for safe browsing</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="proxy-form">
+                <div class="input-group">
+                    <input type="text" id="url-input" placeholder="Enter a URL (e.g., https://example.com)" value="https://">
+                    <button id="go-button" class="btn-primary">
+                        <i class="fas fa-play"></i> Go
+                    </button>
+                </div>
+                
+                <div class="quick-links">
+                    <p>Try these safe websites:</p>
+                    <div class="link-buttons">
+                        <button class="btn-link" data-url="https://en.wikipedia.org/wiki/Web_proxy">
+                            <i class="fab fa-wikipedia-w"></i> Wikipedia
+                        </button>
+                        <button class="btn-link" data-url="https://news.ycombinator.com">
+                            <i class="fab fa-hacker-news"></i> Hacker News
+                        </button>
+                        <button class="btn-link" data-url="https://httpbin.org/html">
+                            <i class="fas fa-code"></i> HTTPBin Test
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h3><i class="fas fa-info-circle"></i> How It Works</h3>
+                    <p>This proxy acts as an intermediary between your browser and the destination website. It fetches content on your behalf and displays it here.</p>
+                    <ul>
+                        <li><strong>Security:</strong> Only whitelisted domains are allowed</li>
+                        <li><strong>Privacy:</strong> Your IP address is hidden from visited sites</li>
+                        <li><strong>Limitations:</strong> JavaScript and complex sites may not work perfectly</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="proxy-result">
+                <div class="result-header">
+                    <h3><i class="fas fa-globe"></i> Proxy Results</h3>
+                    <div class="status-indicator">
+                        <span id="status-text">Ready</span>
+                        <div id="status-dot" class="status-dot ready"></div>
+                    </div>
+                </div>
+                
+                <div id="frame-container">
+                    <div class="placeholder">
+                        <i class="fas fa-compass fa-4x"></i>
+                        <h3>No page loaded yet</h3>
+                        <p>Enter a URL above and click "Go" to browse through the proxy.</p>
+                        <p class="small-note">Note: Some websites may not display correctly due to security restrictions.</p>
+                    </div>
+                    <iframe id="proxy-frame" sandbox="allow-same-origin allow-scripts allow-forms" style="display:none;"></iframe>
+                </div>
+                
+                <div class="url-display">
+                    <p><strong>Current URL:</strong> <span id="current-url">None</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Simple Proxy v1.0 | For educational purposes only | 
+                <a href="#" id="privacy-link">Privacy</a> | 
+                <a href="#" id="about-link">About</a>
+            </p>
+        </footer>
+    </div>
+    
+    <!-- Privacy Modal -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2><i class="fas fa-user-shield"></i> Privacy Information</h2>
+            <p>This proxy service is designed for educational purposes and demonstrates how web proxies work.</p>
+            <ul>
+                <li>We do not log your browsing activity</li>
+                <li>We do not store personal information</li>
+                <li>We do not use cookies for tracking</li>
+                <li>All browsing is done through a secure connection</li>
+                <li>Some websites may not function correctly through this proxy</li>
+            </ul>
+            <p><strong>Warning:</strong> This is a simple proxy and may not provide complete anonymity or security. Use at your own risk.</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
